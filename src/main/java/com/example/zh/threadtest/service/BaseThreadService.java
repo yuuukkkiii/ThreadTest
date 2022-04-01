@@ -10,4 +10,6 @@ public interface BaseThreadService {
     public void baseTestResult();
 
     public void baseSleepResult();
+
+    public void basePriority();
 }

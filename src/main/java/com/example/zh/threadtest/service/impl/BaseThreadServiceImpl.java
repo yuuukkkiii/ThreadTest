@@ -1,5 +1,6 @@
 package com.example.zh.threadtest.service.impl;
 
+import com.example.zh.threadtest.entity.SimplePriorities;
 import com.example.zh.threadtest.entity.SleepingTask;
 import com.example.zh.threadtest.entity.TaskWithResult;
 import com.example.zh.threadtest.service.BaseThreadService;
@@ -47,6 +48,16 @@ public class BaseThreadServiceImpl implements BaseThreadService {
         for(int i=0;i<5;i++){
             exec.execute(new SleepingTask());
         }
+        exec.shutdown();
+    }
+
+    @Override
+    public void basePriority() {
+        ExecutorService exec =Executors.newCachedThreadPool();
+        for(int i=0;i<5;i++){
+            exec.execute(new SimplePriorities(Thread.MIN_PRIORITY));
+        }
+        exec.execute(new SimplePriorities(Thread.MAX_PRIORITY));
         exec.shutdown();
     }
 }
