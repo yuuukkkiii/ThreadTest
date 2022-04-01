@@ -25,6 +25,9 @@ public class BaseThreadController {
         if(id==0){
             threadService.baseTestResult();
             return "true";
+        }else if(id==1){
+            threadService.baseSleepResult();
+            return "true";
         }
         return "false";
     }

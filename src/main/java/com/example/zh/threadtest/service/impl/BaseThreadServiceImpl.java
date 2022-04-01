@@ -1,5 +1,6 @@
 package com.example.zh.threadtest.service.impl;
 
+import com.example.zh.threadtest.entity.SleepingTask;
 import com.example.zh.threadtest.entity.TaskWithResult;
 import com.example.zh.threadtest.service.BaseThreadService;
 import lombok.extern.slf4j.Slf4j;
@@ -38,5 +39,14 @@ public class BaseThreadServiceImpl implements BaseThreadService {
                 exec.shutdown();
             }
         }
+    }
+
+    @Override
+    public void baseSleepResult() {
+        ExecutorService exec =Executors.newCachedThreadPool();
+        for(int i=0;i<5;i++){
+            exec.execute(new SleepingTask());
+        }
+        exec.shutdown();
     }
 }

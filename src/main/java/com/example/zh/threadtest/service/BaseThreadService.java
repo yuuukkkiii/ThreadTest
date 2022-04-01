@@ -8,4 +8,6 @@ package com.example.zh.threadtest.service;
  */
 public interface BaseThreadService {
     public void baseTestResult();
+
+    public void baseSleepResult();
 }
