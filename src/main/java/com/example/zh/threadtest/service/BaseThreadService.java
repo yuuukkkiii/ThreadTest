@@ -7,4 +7,5 @@ package com.example.zh.threadtest.service;
  * @Description:
  */
 public interface BaseThreadService {
+    public void baseTestResult();
 }
